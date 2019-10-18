@@ -20,10 +20,10 @@ steps:
 - template: templates/build.yml
   parameters:
     version: '1.2.3'
-    versionSuffix: '1.2.3-foo'
+    versionSuffix: 'foo'
 - template: templates/build.yml
   parameters:
     version: '1.2.3'
 - template: templates/build.yml
   parameters:
-    versionSuffix: '1.2.3-foo'
+    versionSuffix: 'foo'
