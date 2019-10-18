@@ -8,25 +8,25 @@ steps:
     displayName: 'Compile'
     inputs:
       projects: 'src/*.sln'    
-      arguments: '--configuration release
+      arguments: '--configuration release'
 
 - ${{ if ne(parameters.versionSuffix, '') }}:
   - task: DotNetCoreCLI@2
     displayName: 'Compile'
     inputs:
       projects: 'src/*.sln'    
-      arguments: '--configuration release --version-suffix ${{ parameters.versionSuffix }}
+      arguments: '--configuration release --version-suffix ${{ parameters.versionSuffix }}'
 
 - ${{ if ne(parameters.version, '') }}:
   - task: DotNetCoreCLI@2
     displayName: 'Compile'
     inputs:
       projects: 'src/*.sln'    
-      arguments: '--configuration release /property:Version ${{ parameters.version }}
+      arguments: '--configuration release /property:Version ${{ parameters.version }}'
 
 - ${{ if and(ne(parameters.version, ''), ne(parameters.versionSuffix, '')) }}:
   - task: DotNetCoreCLI@2
     displayName: 'Compile'
     inputs:
       projects: 'src/*.sln'    
-      arguments: '--configuration release --version-suffix ${{ parameters.versionSuffix }} /property:Version ${{ parameters.version }}
+      arguments: '--configuration release --version-suffix ${{ parameters.versionSuffix }} /property:Version ${{ parameters.version }}'
