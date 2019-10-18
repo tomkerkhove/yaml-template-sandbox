@@ -7,4 +7,5 @@ steps:
   displayName: 'Compile'
   inputs:
     projects: 'src/*.sln'
-    arguments: '--configuration release --version-suffix ${{ parameters.versionSuffix }} /property:Version=${{ parameters.version }}'
+    
+    arguments: '--configuration release ${{ if ne(parameters.versionSuffix, '--version-suffix ${{ parameters.versionSuffix }}') } ${{ if ne(parameters.version, '/property:Version=${{ parameters.version }}') }'
