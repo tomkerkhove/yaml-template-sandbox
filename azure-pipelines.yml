@@ -19,8 +19,5 @@ steps:
   displayName: 'Run a multi-line script'
 - template: templates/create-github-release.yml
   parameters:
-    releaseNotes:  |
-     # Write your PowerShell commands here.
-     
-     Write-Host "Hello World"
-     Write-Host "Hello World"
+    version: '1.2.3'
+    versionSuffix: '1.2.3-foo'
