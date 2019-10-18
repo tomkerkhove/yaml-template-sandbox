@@ -1,0 +1,21 @@
+parameters:
+  releaseNotes: ''
+
+steps:
+- bash: |
+    if [ -z "$RELEASE_NOTES" ]; then
+      echo "##vso[task.logissue type=error;]Missing template parameter \"releaseNotes\""
+      echo "##vso[task.complete result=Failed;]"
+    fi
+  env:
+    RELEASE_NOTES: ${{ parameters.releaseNotes }}
+  displayName: Check for required parameters in YAML template
+- powershell: |
+   # Write your PowerShell commands here.
+   
+   Write-Host "Hello World"
+   Write-Host "Hello World"
+   
+  displayName: 'Writing Release Notes'
+- powershell: '${{ parameters.releaseNotes }}'
+  displayName: 'PowerShell Script'
